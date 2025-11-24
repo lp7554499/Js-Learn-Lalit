@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000;
+            cursor: pointer;
+        }
+        #reset {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #message {
+            font-size: 1.5em;
+            margin-top: 10px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div id="message"></div>
+    <div class="board">
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+        <button class="box"></button>
+    </div>
+    <button id="reset">Reset Game</button>
+    <script>
+        let boxes = document.querySelectorAll(".box");
+        let resetBtn = document.querySelector("#reset");
+        let message = document.querySelector("#message");
+        let turnO = true; // O goes first
+
+        const winPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+            [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+            [0, 4, 8], [2, 4, 6]  // Diagonals
+        ];
+
+        function checkWinner() {
+            for (let pattern of winPatterns) {
+                let [a, b, c] = pattern;
+                if (
+                    boxes[a].innerText !== "" && 
+                    boxes[a].innerText === boxes[b].innerText && 
+                    boxes[a].innerText === boxes[c].innerText
+                ) {
+                    message.innerText = `${boxes[a].innerText} Wins!`;
+                    disableAllBoxes();
+                    return;
+                }
+            }
+            if ([...boxes].every(box => box.innerText !== "")) {
+                message.innerText = "It's a Draw!";
+            }
+        }
+
+        function disableAllBoxes() {
+            boxes.forEach(box => box.disabled = true);
+        }
+
+        function enableAllBoxes() {
+            boxes.forEach(box => {
+                box.innerText = "";
+                box.disabled = false;
+            });
+            message.innerText = "";
+            turnO = true;
+        }
+
+        boxes.forEach((box) => {
+            box.addEventListener("click", () => {
+                if (box.innerText === "") {
+                    box.innerText = turnO ? "O" : "X";
+                    box.disabled = true;
+                    turnO = !turnO;
+                    checkWinner();
+                }
+            });
+        });
+
+        resetBtn.addEventListener("click", enableAllBoxes);
+    </script>
+</body>
+</html>

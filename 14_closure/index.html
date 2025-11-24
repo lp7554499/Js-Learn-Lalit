@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clousre
+    </title>
+</head>
+<body>
+    <script>
+
+        // Lexical Function
+        function outer(){
+            let username=  "lalit890"
+            console.log(secret)
+            function inner(){
+                console.log("Inner Output: ",username)
+                let secret = "123"
+            }
+            function innerTwo(){
+                console.log("Secret Code IS :",secret)
+            }
+            inner()
+        }
+        outer()
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>setTimeout</title>
+</head>
+<body>
+  <h1>chai piyo chai</h1>
+  <button id="stop">Stop</button>
+  <button id="start">Start</button>
+  <button id="reset">Reset</button>
+
+  <script>
+    let timeoutId;
+
+    const originalText = 'chai piyo chai';
+
+    const sayLalit = function () {
+      document.querySelector('h1').innerHTML = 'Hello Your PC Hacked';
+    };
+
+    // Start button: start the timeout
+    document.querySelector('#start').addEventListener('click', function () {
+      timeoutId = setTimeout(sayLalit, 3000);
+      console.log("STARTED");
+    });
+
+    // Stop button: stop the timeout
+    document.querySelector('#stop').addEventListener('click', function () {
+      clearTimeout(timeoutId);
+      console.log("STOPPED");
+    });
+
+    // Reset button: reset to original text
+    document.querySelector('#reset').addEventListener('click', function () {
+      clearTimeout(timeoutId); // Also stop any running timeout
+      document.querySelector('h1').innerHTML = originalText;
+      console.log("RESET DONE");
+    });
+  </script>
+</body>
+</html>

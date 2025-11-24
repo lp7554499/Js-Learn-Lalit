@@ -1,0 +1,11 @@
+[open hi request ko bhejta hai] = open()
+
+javaScript chlta kese he = node.js chlate he or run time environment he
+
+js Ko run Karne Ke Liye Ek Engine Hota He Use V8 Engine khte Hai
+
+or Pura Engine C++ Me Likha He
+{C++} KING OF DSA (-_-)
+
+2nd King He (JAVA)
+ dd
