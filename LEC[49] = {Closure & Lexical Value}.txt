@@ -1,8 +1,0 @@
-LEC[49] = {Closure & Lexical Value}
-
-Clouser Pdhne Se Pahle Lexical Pta Hona chahiye
-
-{} <-- This is a scope of a function
-
-1st Part is LexiCal Clousre is Complete.[13.38]
-2nd Part is Clouser me pura ka pura scope return hota he.
