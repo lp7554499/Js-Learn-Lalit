@@ -1,8 +1,0 @@
-{Fetch Api} = [Network Request & Storing Data]
-
-NOTE : Phle xml http Ka use kiya jata tha
-api se data lene ke liye or request karne ke liye
-
-
-
-{promise ko json value me convert karta he}
