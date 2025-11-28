@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Text Change</title>
+    <style>
+        p{
+            height: 100px;
+            width: 100px;
+            background-color: aquamarine;
+            color: rgb(0, 0, 0);
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Element with id 'hoverText' that will change text on hover -->
+    <p id="hoverText"></p>
+
+    <script>
+        // Select the element with the id 'hoverText'
+        const hoverTextElement = document.getElementById("hoverText");
+
+        // Function to change the text when mouse is over
+        function changeColor() {
+            document.querySelector("body").style.backgroundColor = "green"
+            document.querySelector("p").innerText = "Bhai Sab Set hai"
+        }
+        
+        // Function to reset the text when mouse is out
+        function resetColor() {
+            document.querySelector("body").style.backgroundColor = "white"
+            document.querySelector("p").innerText = "hlo Bhai Kese Ho"
+        }
+
+
+
+        // Add event listeners for mouseover and mouseout events
+        hoverTextElement.addEventListener("mouseover", changeColor);
+        hoverTextElement.addEventListener("mouseout", resetColor);
+    </script>
+</body>
+</html>
